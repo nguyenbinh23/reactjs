@@ -1,0 +1,8 @@
+$normal-text-color: #ffffff;
+$font: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+    font-family: $font;
+    color: $normal-text-color;
+}
