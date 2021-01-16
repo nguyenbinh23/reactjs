@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
-function Header() {
-  const [fistTime, setFirstTime] = useState(new Date());
+function Header(props) {
+  console.log(store)
+  const [firstTime] = useState(new Date());
   const [date, setDate] = useState(new Date());
   const [timePast, setTimePast] = useState(0);
-  let setCurrentTime = () => {
+  let setCurrentTime = () => { 
     setInterval(() => {
       setDate(new Date());
     }, 1000);
@@ -12,9 +13,9 @@ function Header() {
   setCurrentTime();
   // Tương tự như componentDidMount và componentDidUpdate:
   useEffect(() => {
-    let newTimePast = Math.ceil((date.getTime() - fistTime.getTime()) / 1000);
+    let newTimePast = Math.ceil((date.getTime() - firstTime.getTime()) / 1000);
     setTimePast(newTimePast);
-  }, [date]);
+  }, [date , firstTime]);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">

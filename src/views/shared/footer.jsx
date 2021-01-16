@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { Component } from "react";
 
 class Footer extends Component {
   constructor(props) {
