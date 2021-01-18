@@ -15,7 +15,7 @@ class Footer extends Component {
     this.closeFooter = this.closeFooter.bind(this);
   }
   closeFooter() {
-    let newState = { style: { ...this.state.style , display: 'none' }};
+    let newState = { style: { ...this.state.style, display: "none" } };
     this.setState(newState);
   }
 
@@ -25,7 +25,7 @@ class Footer extends Component {
         <small
           className="close text-white float-left"
           onClick={() => {
-            this.closeFooter()
+            this.closeFooter();
           }}
         >
           X

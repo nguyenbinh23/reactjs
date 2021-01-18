@@ -1,34 +1,15 @@
-
-import { createStore }  from "redux";
-
-
-const reducer = (state , action) => {
-    switch(action.type) {
-        case 'CHANGE_USER': {
-            return {
-                ...state,
-                user: {
-                    name: action.payload.name,
-                    token: action.payload.token,
-                }
-            }
-        }
-        default: {
-            return state
-        }
-    } 
-};
+import { createStore , combineReducers , applyMiddleware } from "redux";
+import { isValidName } from "./middleware";
+import categoryReducer from './reducers/category'
+import userReducer from './reducers/user'
 
 
-const initialState = {
-    user: {
-        name: 'Nguyễn Bình',
-        token: 'Bear aaaaaaaaaaa.yyyyyyyyyyy.cccccccc'
-    },
-    appStatus: {
-        isMobile: false
-    }
-}
-const store = createStore(reducer, initialState);
+//Giống như chia module trong vuex
+const initialReducer = combineReducers({
+    category: categoryReducer,
+    user: userReducer
+})
+
+const store = createStore(initialReducer, applyMiddleware(isValidName));
 
 export default store;
